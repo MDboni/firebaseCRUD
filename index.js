@@ -83,6 +83,24 @@ async function run() {
         res.send(result);
     })
 
+    app.get('/users',async (req,res)=>{
+         try{
+          const result = await database.find().toArray() ;
+          console.log("GET /users =>", result);
+          res.send(result);
+        }catch(err){
+           console.log(err);
+           res.status(500).send({error:"Something went wrong"}) ;   
+        }
+    })
+
+    app.delete('/users/:id', async (req,res)=>{
+        const id = req.params.id 
+        const query = {_id : new ObjectId(id)}
+        const result = await database.deleteOne(query);
+        res.send(result)
+    })
+
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");

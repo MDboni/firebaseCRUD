@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { AuthContext } from "../../Provider/ProviderContext"
+import Header from "../Header/Header"
 
 const SingUp = () => {
 
@@ -40,7 +41,7 @@ const SingUp = () => {
   }
 
   return (
-    <div>
+    <Header>
          <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
@@ -71,7 +72,7 @@ const SingUp = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Header>
   )
 }
 
