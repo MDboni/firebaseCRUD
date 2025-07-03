@@ -5,15 +5,20 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomePage from './Pages/HomePage.jsx'
 import Update from './Component/Forms/Update.jsx'
 import SignIn from './Component/Signs/SignIn.jsx'
+import ProviderContext from './Provider/ProviderContext.jsx'
+import SingUp from './Component/Signs/SingUp.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <Routes>
+      <ProviderContext>
+        <Routes>
          <Route path='/' element={<HomePage/>}/>
          <Route path='/update/:id' element={<Update/>}/>
          <Route path='/signIn' element={<SignIn/>}/>
-      </Routes>
+         <Route path='/signUp' element={<SingUp/>}/>
+        </Routes>
+      </ProviderContext>
     </BrowserRouter>
   </StrictMode>,
 )
